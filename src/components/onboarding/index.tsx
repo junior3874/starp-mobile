@@ -19,7 +19,7 @@ type OnboardingProps = {
   imageBackground: ImageSourcePropType;
 };
 
-import Logo from "../../../assets/logo.png";
+import Logo from "../../assets/logo.png";
 
 export function Onboarding({
   description,
@@ -64,9 +64,9 @@ export function Onboarding({
                 ...stepControlProgressDotStyle(stepValue, 1),
                 { marginLeft: 0 },
               ]}
-            ></View>
-            <View style={stepControlProgressDotStyle(stepValue, 2)}></View>
-            <View style={stepControlProgressDotStyle(stepValue, 3)}></View>
+            />
+            <View style={stepControlProgressDotStyle(stepValue, 2)} />
+            <View style={stepControlProgressDotStyle(stepValue, 3)} />
           </View>
 
           <TouchableOpacity
@@ -169,7 +169,8 @@ function stepControlProgressDotStyle(
   stepValue: number
 ) {
   const returnedStyles = [styles.stepControlProgressDot];
-  if (currentStepValue === stepValue)
+  if (currentStepValue === stepValue) {
     returnedStyles.push(styles.stepControlProgressActive);
+  }
   return returnedStyles;
 }

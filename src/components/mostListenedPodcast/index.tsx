@@ -2,10 +2,10 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-import Star from "../../../assets/star.png";
-import Headphones from "../../../assets/headphones.png";
-import Clock from "../../../assets/clock.png";
-import MoreVertical from "../../../assets/more-vertical.png";
+import Star from "../../assets/star.png";
+import Headphones from "../../assets/headphones.png";
+import Clock from "../../assets/clock.png";
+import MoreVertical from "../../assets/more-vertical.png";
 
 type MostListenedPodcastProps = {
   title: string;
@@ -14,6 +14,7 @@ type MostListenedPodcastProps = {
   timesListened: string;
   timesStarred: string;
   image?: string;
+  onPress: () => void;
 };
 
 export function MostListenedPodcast({
@@ -22,10 +23,11 @@ export function MostListenedPodcast({
   timesListened,
   timesStarred,
   title,
+  onPress,
   image = "https://i.ytimg.com/vi/kU4ZEyWVwn8/maxresdefault.jpg",
 }: MostListenedPodcastProps) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <LinearGradient
         colors={["#141414", "#050505"]}
         start={{ x: 1, y: 0 }}
