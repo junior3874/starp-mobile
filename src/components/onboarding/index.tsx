@@ -19,7 +19,7 @@ type OnboardingProps = {
   imageBackground: ImageSourcePropType;
 };
 
-import Logo from "../../../assets/logo.png";
+import Logo from "../../../assets/logo-fill.png";
 
 export function Onboarding({
   description,

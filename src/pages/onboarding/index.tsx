@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import ViewPager from "react-native-pager-view";
 import { View, StyleSheet } from "react-native";
 import { Onboarding as OnboardingComponent } from "../../components/onboarding";
@@ -14,26 +14,6 @@ import OnboardingImage2 from "../../../assets/onboarding-background-2.png";
 const STORAGE_KEY = "@starp/onboarding-has-been-seen";
 
 export function Onboarding() {
-  const [shouldRender, setShouldRender] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      const jsonValue = await AsyncStorage.getItem(STORAGE_KEY);
-      if (!jsonValue) {
-        setShouldRender(true);
-        return;
-      }
-
-      const value = JSON.parse(jsonValue);
-      if (value) {
-        setShouldRender(false);
-        goToHome();
-      } else {
-        setShouldRender(true);
-      }
-    })();
-  }, []);
-
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const pagerRef = useRef<ViewPager>(null);
@@ -52,8 +32,6 @@ export function Onboarding() {
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(true));
     goToHome();
   };
-
-  if (!shouldRender) return null;
 
   return (
     <ViewPager style={{ flex: 1 }} initialPage={0} ref={pagerRef}>

@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import Logo from "../../../assets/logo.png";
+import Logo from "../../../assets/logo-fill.png";
 import Bell from "../../../assets/bell.png";
 import ArrowRight from "../../../assets/arrow-right.png";
 
